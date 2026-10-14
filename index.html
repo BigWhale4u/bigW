@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BigWhale Suites | Luxury Hotel, Lifecamp Abuja</title>
+<meta name="description" content="BigWhale Suites — premium rooms, bar & lounge, dinner hall, swimming pool, BBQ area and event halls in Lifecamp, Abuja.">
+<style>
+/* ============================================================
+   BIGWHALE SUITES — Premium Teal & Gold Design System
+   ============================================================ */
+:root{
+  --teal-900:#04252b;
+  --teal-800:#063a44;
+  --teal-700:#0a5563;
+  --teal-500:#0e7e93;
+  --teal-300:#2fb3c7;
+  --teal-100:#dff5f8;
+  --gold-1:#f6e27a;
+  --gold-2:#d4af37;
+  --gold-3:#b8860b;
+  --gold-grad:linear-gradient(135deg,#f9e79b 0%,#d4af37 45%,#a67c00 100%);
+  --ink:#0b1c22;
+  --muted:#5b7078;
+  --white:#ffffff;
+  --bg-soft:#f4fafb;
+  --shadow-lg:0 24px 60px -18px rgba(4,37,43,.35);
+  --shadow-sm:0 8px 24px -10px rgba(4,37,43,.25);
+  --radius:18px;
+  --font-head:"Playfair Display",Georgia,serif;
+  --font-body:"Poppins",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--white);line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:var(--font-head);line-height:1.2}
+.container{width:min(1180px,92%);margin:0 auto}
+.section{padding:96px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--gold-3);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem}
+.eyebrow::before,.eyebrow::after{content:"";width:34px;height:1px;background:var(--gold-2)}
+.section-title{font-size:clamp(1.9rem,4vw,2.8rem);color:var(--teal-900);margin:.5rem 0 1rem}
+.section-sub{color:var(--muted);max-width:640px}
+.gold-text{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:60px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease}
+.btn-gold{background:var(--gold-grad);color:var(--teal-900);box-shadow:0 10px 26px -10px rgba(184,134,11,.55)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 18px 36px -12px rgba(184,134,11,.65)}
+.btn-teal{background:linear-gradient(135deg,var(--teal-700),var(--teal-500));color:#fff;box-shadow:0 10px 26px -10px rgba(10,85,99,.55)}
+.btn-teal:hover{transform:translateY(-3px)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.45);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.22)}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   NAVBAR + SEARCH
+   ============================================================ */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .4s ease,box-shadow .4s ease;padding:14px 0}
+.nav.scrolled{background:rgba(4,37,43,.9);backdrop-filter:blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.28)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--font-head);font-size:1.35rem;font-weight:700}
+.logo-whale{width:42px;height:42px;border-radius:50%;background:var(--gold-grad);display:grid;place-items:center;font-size:1.2rem}
+.logo span em{font-style:normal;color:var(--gold-1)}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{color:rgba(255,255,255,.85);font-size:.9rem;font-weight:500;position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--gold-grad);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:10px 22px}
+.search-wrap{position:relative}
+.search-input{width:210px;padding:10px 38px 10px 16px;border-radius:60px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;font-family:var(--font-body);font-size:.85rem;outline:none;transition:width .4s,background .4s}
+.search-input::placeholder{color:rgba(255,255,255,.65)}
+.search-input:focus{width:280px;background:rgba(255,255,255,.2)}
+.search-icon{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.75);pointer-events:none}
+.search-results{position:absolute;top:calc(100% + 10px);right:0;width:320px;max-height:340px;overflow:auto;background:#fff;border-radius:14px;box-shadow:var(--shadow-lg);display:none}
+.search-results.open{display:block}
+.search-results a,.search-results .no-result{display:flex;align-items:center;gap:10px;padding:12px 16px;font-size:.85rem;color:var(--ink);border-bottom:1px solid #eef4f5}
+.search-results a:hover{background:var(--teal-100)}
+.search-results .no-result{color:var(--muted);justify-content:center}
+.search-results .sr-type{margin-left:auto;font-size:.68rem;background:var(--gold-grad);color:var(--teal-900);padding:2px 8px;border-radius:20px;font-weight:600;white-space:nowrap}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:26px;height:2px;background:#fff;transition:.3s}
+.mobile-menu{display:none;flex-direction:column;background:rgba(4,37,43,.97);backdrop-filter:blur(12px);padding:18px 6%;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:#fff;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.08)}
+.mobile-menu a:hover{color:var(--gold-1)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;color:#fff;
+  background:linear-gradient(rgba(4,37,43,.72),rgba(4,37,43,.82)),url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat}
+.hero-content{padding:130px 0 90px;max-width:760px}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:700}
+.hero p.lead{margin:1.2rem 0 2.2rem;font-size:1.08rem;color:rgba(255,255,255,.88);max-width:560px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:14px;margin-top:44px}
+.hero-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);padding:10px 18px;border-radius:40px;font-size:.82rem}
+.hero-badge b{color:var(--gold-1)}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);width:26px;height:44px;border:2px solid rgba(255,255,255,.5);border-radius:20px}
+.scroll-hint::before{content:"";position:absolute;top:8px;left:50%;width:4px;height:9px;margin-left:-2px;border-radius:4px;background:var(--gold-1);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:1;transform:translateY(0)}70%{opacity:0;transform:translateY(14px)}100%{opacity:0}}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.about-media{position:relative}
+.about-media img{border-radius:var(--radius);box-shadow:var(--shadow-lg);height:480px;width:100%;object-fit:cover}
+.about-card{position:absolute;bottom:-26px;right:-16px;background:var(--teal-900);color:#fff;padding:22px 28px;border-radius:16px;box-shadow:var(--shadow-lg);border:1px solid rgba(212,175,55,.4)}
+.about-card b{font-family:var(--font-head);font-size:1.8rem;display:block;color:var(--gold-1)}
+.about-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 32px}
+.about-list li{display:flex;gap:10px;align-items:flex-start;font-size:.92rem}
+.about-list li::before{content:"✦";color:var(--gold-2)}
+
+/* ============================================================
+   ROOMS
+   ============================================================ */
+.rooms{background:linear-gradient(180deg,var(--bg-soft),#fff)}
+.room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+.room-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .4s ease,box-shadow .4s ease;border:1px solid #eaf3f5}
+.room-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
+.room-card .img{height:230px;overflow:hidden}
+.room-card .img img{height:100%;width:100%;object-fit:cover;transition:transform .8s ease}
+.room-card:hover .img img{transform:scale(1.08)}
+.room-body{padding:26px;display:flex;flex-direction:column;flex:1}
+.room-grade{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--gold-3)}
+.room-body h3{font-size:1.45rem;margin:.35rem 0 .6rem;color:var(--teal-900)}
+.room-body p{color:var(--muted);font-size:.88rem;flex:1}
+.room-feats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.room-feats span{font-size:.72rem;background:var(--teal-100);color:var(--teal-700);padding:5px 11px;border-radius:20px}
+.room-foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.price{font-family:var(--font-head);font-size:1.35rem;color:var(--teal-800)}
+.price small{font-family:var(--font-body);font-size:.72rem;color:var(--muted)}
+.book-btn{padding:11px 22px;font-size:.84rem}
+
+/* ============================================================
+   SERVICES SLIDESHOW
+   ============================================================ */
+.services{background:var(--teal-900);color:#fff;position:relative;overflow:hidden}
+.services::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.16),transparent 70%);top:-160px;right:-160px}
+.services .section-title{color:#fff}
+.services .section-sub{color:rgba(255,255,255,.7)}
+.slideshow{margin-top:50px;position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg)}
+.slide{display:none;position:relative;height:min(560px,68vw);min-height:380px;animation:fadeZoom .8s ease}
+.slide.active{display:block}
+@keyframes fadeZoom{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(4,37,43,.92));display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(22px,5vw,52px)}
+.slide-overlay .tag{align-self:flex-start;background:var(--gold-grad);color:var(--teal-900);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:14px}
+.slide-overlay h3{font-size:clamp(1.5rem,3.4vw,2.4rem)}
+.slide-overlay p{max-width:560px;color:rgba(255,255,255,.85);font-size:.95rem;margin:.6rem 0 1.2rem}
+.slide-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(4,37,43,.45);color:#fff;font-size:1.2rem;cursor:pointer;backdrop-filter:blur(6px);transition:.3s;z-index:3}
+.slide-nav:hover{background:var(--gold-2);color:var(--teal-900);border-color:var(--gold-2)}
+.slide-nav.prev{left:16px}.slide-nav.next{right:16px}
+.dots{display:flex;justify-content:center;gap:10px;margin-top:20px}
+.dots button{width:11px;height:11px;border-radius:50%;border:none;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s}
+.dots button.active{background:var(--gold-2);transform:scale(1.3)}
+
+/* ============================================================
+   MENUS
+   ============================================================ */
+.menu-tabs{display:flex;justify-content:center;gap:12px;margin:40px 0 30px;flex-wrap:wrap}
+.menu-tab{padding:12px 30px;border-radius:50px;border:1px solid var(--teal-500);background:#fff;color:var(--teal-700);font-weight:600;font-size:.9rem;cursor:pointer;transition:.3s}
+.menu-tab.active,.menu-tab:hover{background:linear-gradient(135deg,var(--teal-700),var(--teal-500));color:#fff}
+.day-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
+.day-tab{padding:8px 18px;border-radius:40px;background:var(--teal-100);border:none;color:var(--teal-800);font-size:.8rem;font-weight:600;cursor:pointer;transition:.3s}
+.day-tab.active,.day-tab:hover{background:var(--gold-grad);color:var(--teal-900)}
+.meal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.meal-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid #eaf3f5;transition:transform .35s}
+.meal-card:hover{transform:translateY(-6px)}
+.meal-card img{height:170px;width:100%;object-fit:cover}
+.meal-body{padding:18px 20px}
+.meal-kind{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-3);font-weight:700}
+.meal-body h4{font-size:1.05rem;color:var(--teal-900);margin:4px 0 6px}
+.meal-row{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.meal-row .mprice{font-family:var(--font-head);color:var(--teal-700);font-size:1.05rem}
+.bar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.bar-cat{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-sm);border:1px solid #eaf3f5}
+.bar-cat h4{color:var(--teal-900);font-size:1.2rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.bar-cat h4::before{content:"";width:26px;height:2px;background:var(--gold-grad)}
+.bar-item{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed #e2edf0;font-size:.9rem}
+.bar-item:last-child{border-bottom:none}
+.bar-item b{color:var(--teal-800);font-weight:600}
+.bar-item .dots-leader{flex:1;border-bottom:1px dotted #c8dade;margin-bottom:6px}
+.bar-item span{color:var(--gold-3);font-weight:600;white-space:nowrap}
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+.reviews{background:var(--bg-soft)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.rev-card{background:#fff;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-sm);border:1px solid #eaf3f5;display:flex;flex-direction:column;gap:12px}
+.stars{color:var(--gold-2);letter-spacing:2px;font-size:1rem}
+.rev-card p{color:var(--muted);font-size:.9rem;flex:1}
+.rev-who{display:flex;align-items:center;gap:12px}
+.avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--teal-700),var(--teal-300));color:#fff;display:grid;place-items:center;font-weight:700}
+.rev-who b{display:block;font-size:.92rem;color:var(--teal-900)}
+.rev-who small{color:var(--muted);font-size:.75rem}
+.rev-form-wrap{max-width:640px;margin:56px auto 0;background:#fff;padding:34px;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+.rev-form-wrap h3{color:var(--teal-900);margin-bottom:18px;text-align:center}
+.star-picker{display:flex;justify-content:center;gap:6px;font-size:1.9rem;cursor:pointer;margin-bottom:16px}
+.star-picker span{color:#d7e3e6;transition:.2s}
+.star-picker span.lit{color:var(--gold-2);transform:scale(1.1)}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.78rem;font-weight:600;color:var(--teal-800);letter-spacing:.04em}
+.field input,.field select,.field textarea{padding:13px 15px;border-radius:12px;border:1px solid #d5e5e9;font-family:var(--font-body);font-size:.9rem;background:var(--bg-soft);outline:none;transition:.3s;color:var(--ink)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal-500);box-shadow:0 0 0 4px rgba(14,126,147,.12);background:#fff}
+.error-msg{color:#c0392b;font-size:.74rem;display:none}
+.field.invalid input,.field.invalid select{border-color:#c0392b}
+.field.invalid .error-msg{display:block}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;margin-top:48px;align-items:start}
+.contact-info-card{background:var(--teal-900);color:#fff;border-radius:var(--radius);padding:36px;box-shadow:var(--shadow-lg)}
+.contact-info-card h3{color:var(--gold-1);font-size:1.5rem;margin-bottom:22px}
+.c-row{display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.c-row:last-of-type{border-bottom:none}
+.c-ico{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:rgba(212,175,55,.15);display:grid;place-items:center;color:var(--gold-1)}
+.c-row b{display:block;font-size:.8rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.1em}
+.c-row a,.c-row span.val{font-size:.95rem;color:#fff}
+.c-row a:hover{color:var(--gold-1)}
+.socials{display:flex;gap:12px;margin-top:22px}
+.socials a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;transition:.3s}
+.socials a:hover{background:var(--gold-grad);color:var(--teal-900);border-color:transparent;transform:translateY(-3px)}
+.contact-form-card{background:#fff;border-radius:var(--radius);padding:36px;box-shadow:var(--shadow-sm);border:1px solid #eaf3f5}
+.contact-form-card h3{color:var(--teal-900);margin-bottom:20px}
+.map-box{margin-top:26px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid #eaf3f5}
+.map-box iframe{width:100%;height:280px;border:0;display:block}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{background:var(--teal-900);color:rgba(255,255,255,.75);padding:70px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:40px;padding-bottom:46px}
+footer h4{color:#fff;font-size:1.05rem;margin-bottom:18px}
+footer .logo{margin-bottom:14px}
+.footer-links li{margin-bottom:10px}
+.footer-links a{font-size:.88rem;transition:.3s}
+.footer-links a:hover{color:var(--gold-1);padding-left:6px}
+.news-form{display:flex;margin-top:14px;border-radius:50px;overflow:hidden;border:1px solid rgba(255,255,255,.25)}
+.news-form input{flex:1;padding:12px 18px;border:none;background:rgba(255,255,255,.08);color:#fff;outline:none;font-family:var(--font-body);font-size:.85rem}
+.news-form input::placeholder{color:rgba(255,255,255,.5)}
+.news-form button{padding:12px 20px;border:none;background:var(--gold-grad);color:var(--teal-900);font-weight:700;cursor:pointer}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.8rem}
+.footer-bottom b{color:var(--gold-1)}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-backdrop{position:fixed;inset:0;background:rgba(4,37,43,.72);backdrop-filter:blur(6px);z-index:200;display:none;align-items:center;justify-content:center;padding:18px}
+.modal-backdrop.open{display:flex}
+.modal{background:#fff;border-radius:20px;width:min(560px,100%);max-height:92vh;overflow:auto;padding:34px;position:relative;animation:popIn .35s ease}
+@keyframes popIn{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:none}}
+.modal h3{color:var(--teal-900);margin-bottom:4px}
+.modal .modal-sub{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:none;background:var(--teal-100);color:var(--teal-800);font-size:1rem;cursor:pointer;transition:.3s}
+.modal-close:hover{background:var(--gold-grad)}
+.confirm-box{background:var(--bg-soft);border:1px solid var(--teal-100);border-radius:14px;padding:20px;font-size:.9rem;display:none;margin-top:8px}
+.confirm-box.show{display:block}
+.confirm-box h4{color:var(--teal-700);margin-bottom:10px}
+.confirm-box p{margin-bottom:6px}
+.confirm-box b{color:var(--gold-3)}
+
+/* WhatsApp float */
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:150;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:transform .3s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+/* Toast */
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);background:var(--teal-900);color:#fff;padding:14px 28px;border-radius:50px;font-size:.88rem;box-shadow:var(--shadow-lg);z-index:300;transition:transform .45s ease;border:1px solid rgba(212,175,55,.5)}
+.toast.show{transform:translate(-50%,0)}
+.toast b{color:var(--gold-1)}
+
+/* highlight flash for search targets */
+.flash{animation:flash 1.6s ease}
+@keyframes flash{0%,60%{box-shadow:0 0 0 4px var(--gold-2)}100%{box-shadow:none}}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1024px){
+  .room-grid,.meal-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:820px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .search-wrap{display:none}
+  .mobile-menu .search-wrap{display:block;margin:8px 0}
+  .mobile-menu .search-input{width:100%}
+  .mobile-menu .search-input:focus{width:100%}
+  .mobile-menu .search-results{left:0;right:0;width:100%}
+  .bar-grid{grid-template-columns:1fr}
+  .section{padding:70px 0}
+}
+@media(max-width:600px){
+  .room-grid,.meal-grid,.rev-grid,.form-grid,.about-list{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .about-card{right:8px;bottom:-18px;padding:16px 20px}
+  .hero-content{padding-top:110px}
+  .modal{padding:26px 20px}
+}
+@media(min-width:1600px){
+  .container{width:min(1320px,88%)}
+  html{font-size:112%}
+}
+@media(min-width:2500px){
+  html{font-size:135%}
+  .container{width:min(1600px,86%)}
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<base target="_blank">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="logo"><span class="logo-whale">🐋</span><span>Big<em>Whale</em> Suites</span></a>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#services">Services</a>
+      <a href="#menu">Menu</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#rooms" class="btn btn-gold nav-cta">Book Now</a>
+    </nav>
+    <div class="search-wrap">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search rooms, menus, services…" autocomplete="off">
+      <span class="search-icon">🔍</span>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="search-wrap">
+      <input type="text" class="search-input" id="mobileSearchInput" placeholder="Search rooms, menus, services…" autocomplete="off">
+      <div class="search-results" id="mobileSearchResults" style="position:static;width:100%;margin-top:8px"></div>
+    </div>
+    <a href="#home">Home</a><a href="#about">About</a><a href="#rooms">Rooms</a>
+    <a href="#services">Services</a><a href="#menu">Menu</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    <a href="#rooms" class="btn btn-gold" style="justify-content:center;margin-top:10px">Book Now</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="container hero-content">
+    <span class="eyebrow" style="color:var(--gold-1)">Lifecamp · Abuja · Nigeria</span>
+    <h1>Where Luxury Meets the <span class="gold-text">Calm of the Deep</span></h1>
+    <p class="lead">BigWhale Suites is Abuja's premium destination for exquisite rooms, fine dining, a vibrant bar &amp; lounge, swimming, BBQ and world-class event halls — all in one address.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="#rooms" class="btn btn-gold">Reserve Your Stay ✦</a>
+      <a href="#services" class="btn btn-ghost">Explore Services</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge">⭐ <b>4.9</b> Guest Rating</div>
+      <div class="hero-badge">🛎️ 24/7 Concierge</div>
+      <div class="hero-badge">📍 Lifecamp, Abuja</div>
+      <div class="hero-badge">💳 From <b>₦45,000</b>/night</div>
+    </div>
+  </div>
+  <div class="scroll-hint"></div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-media reveal">
+      <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1000&q=80" alt="BigWhale Suites lobby">
+      <div class="about-card"><b>10+</b>Years of Hospitality Excellence</div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">About Us</span>
+      <h2 class="section-title">A Suite Experience Above the <span class="gold-text">Ordinary</span></h2>
+      <p class="section-sub">Nestled in the serene heart of Lifecamp, Abuja, BigWhale Suites blends contemporary elegance with warm Nigerian hospitality. Whether you're here for a night, a short stay, a sizzling BBQ evening, or a grand celebration in our event halls — every detail is crafted to delight.</p>
+      <ul class="about-list">
+        <li>Exquisite Standard, Superior &amp; Deluxe rooms</li>
+        <li>Short-time rooms for flexible stays</li>
+        <li>Bar &amp; lounge with signature cocktails</li>
+        <li>Dinner hall with daily chef specials</li>
+        <li>Swimming area &amp; BBQ garden</li>
+        <li>Halls for rentage — weddings, meetings &amp; parties</li>
+      </ul>
+      <button class="btn btn-teal" onclick="openBooking('General Enquiry')">Make an Enquiry</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROOMS ================= -->
+<section class="section rooms" id="rooms">
+  <div class="container">
+    <div style="text-align:center" class="reveal">
+      <span class="eyebrow">Accommodation</span>
+      <h2 class="section-title">Our Exquisite <span class="gold-text">Rooms &amp; Suites</span></h2>
+      <p class="section-sub" style="margin:0 auto">Three grades of comfort, each finished with plush bedding, smart amenities and the signature BigWhale touch.</p>
+    </div>
+    <div class="room-grid">
+      <article class="room-card reveal" id="standard-room">
+        <div class="img"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" alt="Standard Room"></div>
+        <div class="room-body">
+          <span class="room-grade">Grade I</span>
+          <h3>Standard Room</h3>
+          <p>Cosy and refined — perfect for solo travellers and business guests who value comfort and calm.</p>
+          <div class="room-feats"><span>Queen Bed</span><span>Smart TV</span><span>Free Wi-Fi</span><span>Rain Shower</span></div>
+          <div class="room-foot">
+            <div class="price">₦45,000 <small>/ night</small></div>
+            <button class="btn btn-gold book-btn" onclick="openBooking('Standard Room')">Book Now</button>
+          </div>
+        </div>
+      </article>
+      <article class="room-card reveal" id="superior-room">
+        <div class="img"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" alt="Superior Room"></div>
+        <div class="room-body">
+          <span class="room-grade">Grade II</span>
+          <h3>Superior Room</h3>
+          <p>Spacious luxury with a seating lounge, minibar and city views — our most loved category.</p>
+          <div class="room-feats"><span>King Bed</span><span>Minibar</span><span>City View</span><span>Work Desk</span></div>
+          <div class="room-foot">
+            <div class="price">₦85,000 <small>/ night</small></div>
+            <button class="btn btn-gold book-btn" onclick="openBooking('Superior Room')">Book Now</button>
+          </div>
+        </div>
+      </article>
+      <article class="room-card reveal" id="deluxe-room">
+        <div class="img"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80" alt="Deluxe Room"></div>
+        <div class="room-body">
+          <span class="room-grade">Grade III · Signature</span>
+          <h3>Deluxe Room</h3>
+          <p>The crown of the whale — a lavish suite with jacuzzi tub, panoramic views and butler service.</p>
+          <div class="room-feats"><span>King Bed</span><span>Jacuzzi</span><span>Butler</span><span>Lounge</span></div>
+          <div class="room-foot">
+            <div class="price">₦125,000 <small>/ night</small></div>
+            <button class="btn btn-gold book-btn" onclick="openBooking('Deluxe Room')">Book Now</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p style="text-align:center;margin-top:34px" class="reveal">
+      <button class="btn btn-teal" onclick="openBooking('Short-Time Room')">Need a short-time room? Book by the hour →</button>
+    </p>
+  </div>
+</section>
+
+<!-- ================= SERVICES SLIDESHOW ================= -->
+<section class="section services" id="services">
+  <div class="container">
+    <div style="text-align:center" class="reveal">
+      <span class="eyebrow" style="color:var(--gold-1)">What We Offer</span>
+      <h2 class="section-title">All Our <span class="gold-text">Signature Services</span></h2>
+      <p class="section-sub" style="margin:0 auto">From relaxation to celebration — every corner of BigWhale Suites is yours to enjoy.</p>
+    </div>
+    <div class="slideshow reveal" id="slideshow"></div>
+    <div class="dots" id="dots"></div>
+  </div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="section" id="menu">
+  <div class="container">
+    <div style="text-align:center" class="reveal">
+      <span class="eyebrow">Dining &amp; Drinks</span>
+      <h2 class="section-title">Kitchen, Bar &amp; <span class="gold-text">Lounge Menus</span></h2>
+      <p class="section-sub" style="margin:0 auto">Fresh special meals every day of the week — breakfast, lunch and dinner — plus a curated bar &amp; lounge list.</p>
+    </div>
+    <div class="menu-tabs reveal">
+      <button class="menu-tab active" data-tab="kitchen">🍽️ Kitchen — Daily Specials</button>
+      <button class="menu-tab" data-tab="bar">🍸 Bar &amp; Lounge</button>
+    </div>
+    <div id="kitchenPanel" class="reveal">
+      <div class="day-tabs" id="dayTabs"></div>
+      <div class="meal-grid" id="mealGrid"></div>
+    </div>
+    <div id="barPanel" style="display:none" class="reveal">
+      <div class="bar-grid" id="barGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div style="text-align:center" class="reveal">
+      <span class="eyebrow">Guest Love</span>
+      <h2 class="section-title">Reviews &amp; <span class="gold-text">Ratings</span></h2>
+      <p class="section-sub" style="margin:0 auto">Real experiences from real guests at BigWhale Suites, Lifecamp Abuja.</p>
+    </div>
+    <div class="rev-grid" id="revGrid"></div>
+    <div class="rev-form-wrap reveal">
+      <h3>Share Your Experience</h3>
+      <div class="star-picker" id="starPicker">
+        <span data-val="1">★</span><span data-val="2">★</span><span data-val="3">★</span><span data-val="4">★</span><span data-val="5">★</span>
+      </div>
+      <form id="reviewForm" class="form-grid" novalidate>
+        <div class="field"><label>Your Name</label><input type="text" id="revName" placeholder="e.g. Adaeze Okafor"><small class="error-msg">Please enter your name</small></div>
+        <div class="field"><label>Stay Type</label><input type="text" id="revStay" placeholder="e.g. Deluxe Room Weekend"></div>
+        <div class="field full"><label>Your Review</label><textarea id="revText" rows="4" placeholder="Tell us about your experience…"></textarea><small class="error-msg">Please write a short review</small></div>
+        <div class="field full"><button type="submit" class="btn btn-gold" style="justify-content:center">Submit Review ⭐</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact" style="background:var(--bg-soft)">
+  <div class="container">
+    <div style="text-align:center" class="reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2 class="section-title">Contact <span class="gold-text">BigWhale Suites</span></h2>
+      <p class="section-sub" style="margin:0 auto">We're available around the clock — call, WhatsApp, email or snap us. We'd love to host you.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info-card reveal">
+        <h3>Reach Us Directly</h3>
+        <div class="c-row">
+          <div class="c-ico">📧</div>
+          <div><b>Email</b><a href="mailto:oladimejifaith103@gmail.com">oladimejifaith103@gmail.com</a></div>
+        </div>
+        <div class="c-row">
+          <div class="c-ico">📞</div>
+          <div><b>Phone &amp; WhatsApp</b><a href="tel:+2348080733773">+234 808 073 3773</a></div>
+        </div>
+        <div class="c-row">
+          <div class="c-ico">👻</div>
+          <div><b>Snapchat</b><span class="val">bigwhal.j4u</span></div>
+        </div>
+        <div class="c-row">
+          <div class="c-ico">📍</div>
+          <div><b>Location</b><span class="val">Lifecamp, Abuja, Nigeria</span></div>
+        </div>
+        <div class="c-row">
+          <div class="c-ico">🕐</div>
+          <div><b>Front Desk</b><span class="val">Open 24 hours, every day</span></div>
+        </div>
+        <div class="socials">
+          <a href="https://wa.me/2348080733773" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 .9c.3.1.5.2.5.4.1 0 .1.7-.2 1.6z"/></svg></a>
+          <a href="mailto:oladimejifaith103@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 7L4 6v12h16V6l-8 5z"/></svg></a>
+          <a href="tel:+2348080733773" aria-label="Call"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1l-2.22 2.2z"/></svg></a>
+        </div>
+      </div>
+      <div class="contact-form-card reveal">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm" class="form-grid" novalidate>
+          <div class="field"><label>Full Name</label><input type="text" id="cName" placeholder="Your name"><small class="error-msg">Please enter your name</small></div>
+          <div class="field"><label>Email</label><input type="email" id="cEmail" placeholder="you@email.com"><small class="error-msg">Please enter a valid email</small></div>
+          <div class="field full"><label>Subject</label><input type="text" id="cSubject" placeholder="How can we help?"></div>
+          <div class="field full"><label>Message</label><textarea id="cMsg" rows="4" placeholder="Write your message…"></textarea><small class="error-msg">Please write a message</small></div>
+          <div class="field full"><button type="submit" class="btn btn-teal" style="justify-content:center">Send Message ✉️</button></div>
+        </form>
+      </div>
+    </div>
+    <div class="map-box reveal">
+      <iframe title="BigWhale Suites Location" loading="lazy"
+        src="https://maps.google.com/maps?q=Life%20Camp%2C%20Abuja%2C%20Nigeria&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#home" class="logo"><span class="logo-whale">🐋</span><span>Big<em>Whale</em> Suites</span></a>
+        <p style="font-size:.88rem;max-width:300px">Premium hospitality in Lifecamp, Abuja — rooms, dining, lounge, pool, BBQ and event halls under one elegant roof.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#rooms">Rooms &amp; Rates</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#menu">Menus</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:oladimejifaith103@gmail.com">oladimejifaith103@gmail.com</a></li>
+          <li><a href="tel:+2348080733773">+234 808 073 3773</a></li>
+          <li><a href="https://wa.me/2348080733773" target="_blank" rel="noopener">WhatsApp Chat</a></li>
+          <li><span>Snapchat: bigwhal.j4u</span></li>
+          <li><span>Lifecamp, Abuja</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <p style="font-size:.86rem">Get exclusive offers and seasonal specials in your inbox.</p>
+        <form class="news-form" id="newsForm" novalidate>
+          <input type="email" id="newsEmail" placeholder="Your email address">
+          <button type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> <b>BigWhale Suites</b> — Lifecamp, Abuja. All rights reserved.</span>
+      <span>Designed with ✦ teal &amp; gold</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= BOOKING MODAL ================= -->
+<div class="modal-backdrop" id="bookingModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>Book Your <span class="gold-text">Experience</span></h3>
+    <p class="modal-sub">Complete the form below and our team will confirm your reservation shortly.</p>
+    <form id="bookingForm" class="form-grid" novalidate>
+      <div class="field full">
+        <label>Service / Room</label>
+        <select id="bService">
+          <option>Standard Room</option>
+          <option>Superior Room</option>
+          <option>Deluxe Room</option>
+          <option>Short-Time Room</option>
+          <option>Bar &amp; Lounge Reservation</option>
+          <option>Dinner Hall Reservation</option>
+          <option>Swimming Area Pass</option>
+          <option>BBQ Area Booking</option>
+          <option>Hall for Rentage</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="field"><label>Check-in / Date</label><input type="date" id="bDateIn"><small class="error-msg">Select a date</small></div>
+      <div class="field"><label>Check-out / End Date</label><input type="date" id="bDateOut"></div>
+      <div class="field" id="eventTypeField" style="display:none"><label>Event Type</label>
+        <select id="bEventType">
+          <option>Wedding</option><option>Birthday Party</option><option>Corporate Meeting</option>
+          <option>Conference</option><option>Graduation Party</option><option>Other Celebration</option>
+        </select>
+      </div>
+      <div class="field"><label>Full Name</label><input type="text" id="bName" placeholder="Your full name"><small class="error-msg">Please enter your name</small></div>
+      <div class="field"><label>Phone / WhatsApp</label><input type="tel" id="bPhone" placeholder="+234…"><small class="error-msg">Enter a valid phone number</small></div>
+      <div class="field full"><label>Email (optional)</label><input type="email" id="bEmail" placeholder="you@email.com"></div>
+      <div class="field full"><label>Special Requests</label><textarea id="bNotes" rows="3" placeholder="Any special request…"></textarea></div>
+      <div class="field full"><button type="submit" class="btn btn-gold" style="justify-content:center">Confirm Booking ✦</button></div>
+    </form>
+    <div class="confirm-box" id="confirmBox"></div>
+  </div>
+</div>
+
+<!-- WhatsApp float -->
+<a class="wa-float" href="https://wa.me/2348080733773?text=Hello%20BigWhale%20Suites%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 .9c.3.1.5.2.5.4.1 0 .1.7-.2 1.6z"/></svg>
+</a>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================================================================
+   BIGWHALE SUITES — Application Logic
+   ================================================================ */
+"use strict";
+
+/* ---------- DATA ---------- */
+const SERVICES = [
+  {tag:"Accommodation", title:"Exquisite Rooms & Suites", desc:"Standard, Superior and Deluxe grades — plush bedding, smart TVs, rain showers and 24/7 room service from ₦45,000/night.", img:"https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1400&q=80", book:"Standard Room"},
+  {tag:"Flexible Stay", title:"Short-Time Rooms", desc:"Rest, refresh or work by the hour in our quiet, discreet short-time rooms — perfect for layovers and quick stopovers.", img:"https://images.unsplash.com/photo-1631049035182-249067d7618e?auto=format&fit=crop&w=1400&q=80", book:"Short-Time Room"},
+  {tag:"Nightlife", title:"Bar & Lounge", desc:"Signature cocktails, premium spirits and smooth live vibes in our glossy teal-and-gold lounge. Open till late.", img:"https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1400&q=80", book:"Bar & Lounge Reservation"},
+  {tag:"Dining", title:"Dinner Hall", desc:"An elegant hall serving chef-crafted breakfast, lunch and dinner specials every single day of the week.", img:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80", book:"Dinner Hall Reservation"},
+  {tag:"Recreation", title:"Swimming Area", desc:"A sparkling pool with sun loungers, poolside service and a serene ambience for guests and day-pass visitors.", img:"https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1400&q=80", book:"Swimming Area Pass"},
+  {tag:"Grill & Chill", title:"BBQ Area", desc:"Sizzle under the stars in our dedicated BBQ garden — grills, gazebos and marinated delights for groups of any size.", img:"https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1400&q=80", book:"BBQ Area Booking"},
+  {tag:"Events", title:"Halls for Rentage", desc:"Spacious, customizable halls for weddings, birthdays, conferences and celebrations — full catering and AV support.", img:"https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=80", book:"Hall for Rentage"}
+];
+
+const DAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const WEEKLY_MENU = {
+  Monday:[
+    {kind:"Breakfast",name:"Full English Breakfast & Fresh Juice",price:"₦8,500",img:"https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Lunch",name:"Jollof Rice, Grilled Chicken & Plantain",price:"₦12,000",img:"https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Dinner",name:"Peppered Fish with Chips & Coleslaw",price:"₦15,000",img:"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=700&q=80"}],
+  Tuesday:[
+    {kind:"Breakfast",name:"Pancake Stack with Syrup & Fruits",price:"₦7,500",img:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Lunch",name:"Egusi Soup with Pounded Yam & Assorted",price:"₦13,000",img:"https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Dinner",name:"Creamy Alfredo Pasta & Garlic Bread",price:"₦14,500",img:"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=700&q=80"}],
+  Wednesday:[
+    {kind:"Breakfast",name:"Yam & Egg Sauce with Hot Chocolate",price:"₦7,000",img:"https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Lunch",name:"Fried Rice with Turkey & Coleslaw",price:"₦13,500",img:"https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Dinner",name:"Suya Platter with Fresh Onions & Pepper",price:"₦14,000",img:"https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"}],
+  Thursday:[
+    {kind:"Breakfast",name:"Akara & Pap (Ogi) with Honey",price:"₦5,500",img:"https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Lunch",name:"Amala with Gbegiri & Ewedu Soup",price:"₦12,500",img:"https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Dinner",name:"Grilled Prawns with Herb Rice",price:"₦16,000",img:"https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=700&q=80"}],
+  Friday:[
+    {kind:"Breakfast",name:"Club Sandwich & Smoothie Bowl",price:"₦8,000",img:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Lunch",name:"Seafood Okra with Wheat Swallow",price:"₦15,000",img:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Dinner",name:"BBQ Ribs with Jollof & Grilled Corn",price:"₦17,000",img:"https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"}],
+  Saturday:[
+    {kind:"Breakfast",name:"Continental Buffet & Fresh Pastries",price:"₦10,000",img:"https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Lunch",name:"Native Rice with Goat Meat Pepper Soup",price:"₦14,000",img:"https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Dinner",name:"Chef's Special Lobster Thermidor",price:"₦22,000",img:"https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=700&q=80"}],
+  Sunday:[
+    {kind:"Breakfast",name:"Ofada Rice & Ayamase (Designer Stew)",price:"₦9,500",img:"https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Lunch",name:"Sunday Roast Chicken with Veggies",price:"₦15,500",img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=700&q=80"},
+    {kind:"Dinner",name:"Grilled Catfish with Yam Porridge",price:"₦14,500",img:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=700&q=80"}]
+};
+
+const BAR_MENU = [
+  {cat:"🍸 Signature Cocktails", items:[["BigWhale Breeze","₦6,500"],["Teal Lagoon Mojito","₦7,000"],["Golden Hour Martini","₦8,500"],["Abuja Sunset","₦7,500"]]},
+  {cat:"🥃 Spirits & Liqueurs", items:[["Hennessy VSOP","₦25,000"],["Glenfiddich 12yrs","₦30,000"],["Baileys (shot)","₦3,500"],["Jägermeister (shot)","₦4,000"]]},
+  {cat:"🍷 Wines & Champagne", items:[["Four Cousins (glass)","₦4,500"],["Nederburg Rosé","₦9,000"],["Moët & Chandon","₦65,000"],["Andre Brut","₦12,000"]]},
+  {cat:"🥤 Mocktails & Soft Drinks", items:[["Virgin Colada","₦4,000"],["Chapman Special","₦3,500"],["Fresh Citrus Smoothie","₦3,500"],["Soda / Malt / Water","₦1,000"]]}
+];
+
+const REVIEWS = [
+  {name:"Adaeze Okafor",stay:"Deluxe Room · Weekend",stars:5,text:"The Deluxe suite is pure class — the jacuzzi at sunset is a memory I'll keep forever. Staff treated us like royalty."},
+  {name:"Ibrahim Musa",stay:"Hall Rentage · Wedding",stars:5,text:"We hosted our wedding reception in their event hall. Impeccable coordination, gorgeous décor, guests are still talking about it."},
+  {name:"Chidinma Eze",stay:"Superior Room · Business",stars:4,text:"Spotless room, fast Wi-Fi and the dinner hall's Thursday amala special is the best I've had in Abuja."},
+  {name:"Tunde Balogun",stay:"Bar & Lounge",stars:5,text:"The Teal Lagoon Mojito is a masterpiece. Lounge ambience is premium — teal, gold and great music all night."},
+  {name:"Fatima Bello",stay:"BBQ Area · Group Hangout",stars:5,text:"Booked the BBQ area for my sister's birthday. Grills were ready, meat was marinated to perfection. 10/10."},
+  {name:"Emeka Nwosu",stay:"Short-Time Room",stars:4,text:"Clean, discreet and quick — exactly what I needed between flights. Front desk was professional throughout."}
+];
+
+/* Search index */
+const SEARCH_INDEX = [
+  {t:"Standard Room",k:"standard room 45000 budget queen bed cheap accommodation",target:"standard-room",type:"Room"},
+  {t:"Superior Room",k:"superior room 85000 king minibar city view",target:"superior-room",type:"Room"},
+  {t:"Deluxe Room",k:"deluxe room 125000 jacuzzi suite butler luxury signature",target:"deluxe-room",type:"Room"},
+  {t:"Short-Time Rooms",k:"short time hourly room rest quick stay",target:"services",type:"Service"},
+  {t:"Bar & Lounge",k:"bar lounge cocktails drinks mojito hennessy wine nightlife",target:"services",type:"Service"},
+  {t:"Dinner Hall",k:"dinner hall restaurant dining food meals",target:"services",type:"Service"},
+  {t:"Swimming Area",k:"swimming pool swim poolside pass recreation",target:"services",type:"Service"},
+  {t:"BBQ Area",k:"bbq barbecue grill garden party meat",target:"services",type:"Service"},
+  {t:"Halls for Rentage",k:"hall rentage event hall wedding birthday conference meeting venue",target:"services",type:"Service"},
+  {t:"Kitchen Daily Specials",k:"kitchen menu breakfast lunch dinner special meals food chef",target:"menu",type:"Menu"},
+  {t:"About BigWhale Suites",k:"about hotel lifecamp abuja hospitality",target:"about",type:"About"},
+  {t:"Contact & WhatsApp",k:"contact phone whatsapp email snapchat address location",target:"contact",type:"Contact"},
+  {t:"Guest Reviews & Ratings",k:"reviews ratings testimonials guests stars",target:"reviews",type:"Reviews"}
+];
+
+/* ---------- HELPERS ---------- */
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+function toast(msg){
+  const t = $("#toast");
+  t.innerHTML = msg;
+  t.classList.add("show");
+  clearTimeout(t._h);
+  t._h = setTimeout(()=>t.classList.remove("show"), 3200);
+}
+function starsHTML(n){
+  return "★".repeat(n) + '<span style="color:#dfe9eb">' + "★".repeat(5-n) + "</span>";
+}
+
+/* ---------- NAVBAR ---------- */
+const nav = $("#nav");
+addEventListener("scroll", ()=> nav.classList.toggle("scrolled", scrollY > 40));
+$("#burger").addEventListener("click", ()=> $("#mobileMenu").classList.toggle("open"));
+$$("#mobileMenu a").forEach(a=>a.addEventListener("click", ()=> $("#mobileMenu").classList.remove("open")));
+
+/* ---------- REVEAL ON SCROLL ---------- */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+},{threshold:.12});
+$$(".reveal").forEach(el=>io.observe(el));
+
+/* ---------- SEARCH ---------- */
+function attachSearch(inputSel, resultsSel){
+  const input = $(inputSel), box = $(resultsSel);
+  if(!input) return;
+  input.addEventListener("input", ()=>{
+    const q = input.value.trim().toLowerCase();
+    box.innerHTML = "";
+    if(!q){ box.classList.remove("open"); return; }
+    const hits = SEARCH_INDEX.filter(item => (item.t+" "+item.k).toLowerCase().includes(q));
+    if(!hits.length){
+      box.innerHTML = '<div class="no-result">No results found for “'+input.value.trim().replace(/</g,"&lt;")+'”</div>';
+    } else {
+      hits.forEach(h=>{
+        const a = document.createElement("a");
+        a.href = "javascript:void(0)";
+        a.innerHTML = "🔎 " + h.t + '<span class="sr-type">'+h.type+'</span>';
+        a.addEventListener("click", ()=>{
+          box.classList.remove("open");
+          input.value = "";
+          $("#mobileMenu").classList.remove("open");
+          const el = document.getElementById(h.target);
+          if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+          setTimeout(()=>{ el && el.classList.add("flash"); setTimeout(()=>el && el.classList.remove("flash"),1700); }, 500);
+        });
+        box.appendChild(a);
+      });
+    }
+    box.classList.add("open");
+  });
+  document.addEventListener("click", e=>{
+    if(!e.target.closest(resultsSel) && e.target !== input) box.classList.remove("open");
+  });
+}
+attachSearch("#searchInput","#searchResults");
+attachSearch("#mobileSearchInput","#mobileSearchResults");
+
+/* ---------- SLIDESHOW ---------- */
+const slidesWrap = $("#slideshow"), dotsWrap = $("#dots");
+SERVICES.forEach((s,i)=>{
+  const d = document.createElement("div");
+  d.className = "slide" + (i===0 ? " active" : "");
+  d.innerHTML = '<img src="'+s.img+'" alt="'+s.title+'" loading="lazy">'+
+    '<div class="slide-overlay"><span class="tag">'+s.tag+'</span><h3>'+s.title+'</h3><p>'+s.desc+'</p>'+
+    '<div><button class="btn btn-gold" onclick="openBooking(\''+s.book+'\')">Reserve This ✦</button></div></div>';
+  slidesWrap.appendChild(d);
+  const dot = document.createElement("button");
+  dot.setAttribute("aria-label","Slide "+(i+1));
+  if(i===0) dot.classList.add("active");
+  dot.addEventListener("click", ()=>goSlide(i));
+  dotsWrap.appendChild(dot);
+});
+const prevBtn = document.createElement("button");
+prevBtn.className = "slide-nav prev"; prevBtn.innerHTML = "‹"; prevBtn.setAttribute("aria-label","Previous slide");
+prevBtn.addEventListener("click", ()=>goSlide(cur-1));
+const nextBtn = document.createElement("button");
+nextBtn.className = "slide-nav next"; nextBtn.innerHTML = "›"; nextBtn.setAttribute("aria-label","Next slide");
+nextBtn.addEventListener("click", ()=>goSlide(cur+1));
+slidesWrap.appendChild(prevBtn); slidesWrap.appendChild(nextBtn);
+
+let cur = 0, timer = setInterval(()=>goSlide(cur+1), 5500);
+function goSlide(i){
+  const slides = $$(".slide"), dots = $$("#dots button");
+  cur = (i + slides.length) % slides.length;
+  slides.forEach((s,idx)=>s.classList.toggle("active", idx===cur));
+  dots.forEach((d,idx)=>d.classList.toggle("active", idx===cur));
+  clearInterval(timer);
+  timer = setInterval(()=>goSlide(cur+1), 5500);
+}
+slidesWrap.addEventListener("mouseenter", ()=>clearInterval(timer));
+slidesWrap.addEventListener("mouseleave", ()=>{ clearInterval(timer); timer = setInterval(()=>goSlide(cur+1), 5500); });
+
+/* ---------- MENU TABS ---------- */
+$$(".menu-tab").forEach(tab=>{
+  tab.addEventListener("click", ()=>{
+    $$(".menu-tab").forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    const isKitchen = tab.dataset.tab === "kitchen";
+    $("#kitchenPanel").style.display = isKitchen ? "" : "none";
+    $("#barPanel").style.display = isKitchen ? "none" : "";
+  });
+});
+
+/* ---------- DAILY MENU ---------- */
+const dayTabs = $("#dayTabs"), mealGrid = $("#mealGrid");
+DAYS.forEach((d,i)=>{
+  const b = document.createElement("button");
+  b.className = "day-tab" + (i===0 ? " active" : "");
+  b.textContent = d;
+  b.addEventListener("click", ()=>{
+    $$(".day-tab").forEach(t=>t.classList.remove("active"));
+    b.classList.add("active");
+    renderMeals(d);
+  });
+  dayTabs.appendChild(b);
+});
+function renderMeals(day){
+  mealGrid.innerHTML = "";
+  WEEKLY_MENU[day].forEach(m=>{
+    const c = document.createElement("div");
+    c.className = "meal-card";
+    c.innerHTML = '<img src="'+m.img+'" alt="'+m.name+'" loading="lazy"><div class="meal-body">'+
+      '<span class="meal-kind">'+m.kind+'</span><h4>'+m.name+'</h4>'+
+      '<div class="meal-row"><span class="mprice">'+m.price+'</span><button class="btn btn-teal book-btn" style="padding:9px 18px;font-size:.78rem" onclick="openBooking(\'Dinner Hall Reservation\')">Reserve</button></div></div>';
+    mealGrid.appendChild(c);
+  });
+}
+renderMeals("Monday");
+
+/* ---------- BAR MENU ---------- */
+const barGrid = $("#barGrid");
+BAR_MENU.forEach(c=>{
+  const d = document.createElement("div");
+  d.className = "bar-cat";
+  d.innerHTML = "<h4>"+c.cat+"</h4>" + c.items.map(it=>
+    '<div class="bar-item"><b>'+it[0]+'</b><span class="dots-leader"></span><span>'+it[1]+'</span></div>').join("");
+  barGrid.appendChild(d);
+});
+
+/* ---------- REVIEWS ---------- */
+let pickedStars = 5;
+function renderReviews(){
+  const g = $("#revGrid");
+  g.innerHTML = "";
+  REVIEWS.forEach(r=>{
+    const c = document.createElement("div");
+    c.className = "rev-card reveal in";
+    c.innerHTML = '<div class="stars">'+starsHTML(r.stars)+'</div><p>“'+r.text+'”</p>'+
+      '<div class="rev-who"><div class="avatar">'+r.name.charAt(0)+'</div><div><b>'+r.name+'</b><small>'+r.stay+'</small></div></div>';
+    g.appendChild(c);
+  });
+}
+renderReviews();
+function paintStars(n){
+  $$("#starPicker span").forEach(s=>s.classList.toggle("lit", +s.dataset.val <= n));
+}
+$$("#starPicker span").forEach(s=>{
+  s.addEventListener("click", ()=>{ pickedStars = +s.dataset.val; paintStars(pickedStars); });
+  s.addEventListener("mouseenter", ()=>paintStars(+s.dataset.val));
+});
+$("#starPicker").addEventListener("mouseleave", ()=>paintStars(pickedStars));
+paintStars(5);
+
+$("#reviewForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const nameF = $("#revName"), textF = $("#revText");
+  let ok = true;
+  nameF.closest(".field").classList.toggle("invalid", !(nameF.value.trim().length > 1));
+  textF.closest(".field").classList.toggle("invalid", !(textF.value.trim().length > 5));
+  ok = nameF.value.trim().length > 1 && textF.value.trim().length > 5;
+  if(!ok) return;
+  REVIEWS.unshift({name:nameF.value.trim(), stay:$("#revStay").value.trim() || "Guest Stay", stars:pickedStars, text:textF.value.trim()});
+  renderReviews();
+  e.target.reset(); pickedStars = 5; paintStars(5);
+  toast("Thank you, <b>"+nameF.value.trim()+"</b>! Your review has been published ⭐");
+});
+
+/* ---------- BOOKING MODAL ---------- */
+const modal = $("#bookingModal");
+function openBooking(service){
+  if(service) $("#bService").value = service;
+  toggleEventField();
+  $("#confirmBox").classList.remove("show");
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeModal(){
+  modal.classList.remove("open");
+  document.body.style.overflow = "";
+}
+modal.addEventListener("click", e=>{ if(e.target === modal) closeModal(); });
+addEventListener("keydown", e=>{ if(e.key === "Escape") closeModal(); });
+$("#bService").addEventListener("change", toggleEventField);
+function toggleEventField(){
+  $("#eventTypeField").style.display = $("#bService").value === "Hall for Rentage" ? "" : "none";
+}
+
+function setInvalid(id, bad){ $(id).closest(".field").classList.toggle("invalid", bad); return !bad; }
+
+$("#bookingForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const dIn = $("#bDateIn").value, name = $("#bName").value.trim(), phone = $("#bPhone").value.trim();
+  let ok = true;
+  ok = setInvalid("#bDateIn", !dIn) && ok;
+  ok = setInvalid("#bName", name.length < 2) && ok;
+  ok = setInvalid("#bPhone", !/^[+\d][\d\s\-()]{6,}$/.test(phone)) && ok;
+  if(!ok){ toast("Please complete the highlighted fields ⚠️"); return; }
+
+  const service = $("#bService").value;
+  const dOut = $("#bDateOut").value;
+  const eventType = service === "Hall for Rentage" ? $("#bEventType").value : null;
+  const ref = "BW-" + Date.now().toString(36).toUpperCase().slice(-6);
+  const booking = {ref, service, dateIn:dIn, dateOut:dOut, eventType, name, phone, email:$("#bEmail").value.trim(), notes:$("#bNotes").value.trim(), created:new Date().toISOString()};
+  const all = JSON.parse(localStorage.getItem("bw_bookings") || "[]");
+  all.push(booking);
+  localStorage.setItem("bw_bookings", JSON.stringify(all));
+
+  const cb = $("#confirmBox");
+  cb.innerHTML = "<h4>✦ Booking Confirmed</h4>"+
+    "<p><b>Reference:</b> "+ref+"</p>"+
+    "<p><b>Service:</b> "+service+(eventType ? " — "+eventType : "")+"</p>"+
+    "<p><b>Guest:</b> "+name+" ("+phone+")</p>"+
+    "<p><b>Date:</b> "+dIn+(dOut ? " → " + dOut : "")+"</p>"+
+    "<p style='margin-top:10px;color:var(--muted);font-size:.8rem'>Our team will contact you shortly to finalize details. For instant confirmation, chat with us on WhatsApp at <b>+234 808 073 3773</b>.</p>";
+  cb.classList.add("show");
+  cb.scrollIntoView({behavior:"smooth", block:"nearest"});
+  toast("Booking <b>"+ref+"</b> confirmed! See you soon 🐋");
+  e.target.reset();
+  toggleEventField();
+});
+
+/* ---------- CONTACT FORM ---------- */
+$("#contactForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  let ok = true;
+  ok = setInvalid("#cName", $("#cName").value.trim().length < 2) && ok;
+  ok = setInvalid("#cEmail", !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("#cEmail").value.trim())) && ok;
+  ok = setInvalid("#cMsg", $("#cMsg").value.trim().length < 5) && ok;
+  if(!ok){ toast("Please complete the highlighted fields ⚠️"); return; }
+  toast("Message sent! We'll reply to <b>"+$("#cEmail").value.trim()+"</b> shortly 📧");
+  e.target.reset();
+});
+
+/* ---------- NEWSLETTER ---------- */
+$("#newsForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const em = $("#newsEmail").value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ toast("Please enter a valid email address ⚠️"); return; }
+  const subs = JSON.parse(localStorage.getItem("bw_newsletter") || "[]");
+  if(!subs.includes(em)){ subs.push(em); localStorage.setItem("bw_newsletter", JSON.stringify(subs)); }
+  toast("Welcome aboard! Exclusive offers coming your way ✨");
+  e.target.reset();
+});
+
+/* ---------- MISC ---------- */
+$("#year").textContent = new Date().getFullYear();
+/* Set min date for booking date inputs to today */
+const today = new Date().toISOString().split("T")[0];
+$("#bDateIn").min = today; $("#bDateOut").min = today;
+</script>
+</body>
+</html>
